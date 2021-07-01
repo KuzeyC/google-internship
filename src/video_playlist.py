@@ -3,26 +3,48 @@
 
 class Playlist:
     """A class used to represent a Playlist."""
-    def __init__(self, name):
-        self.name = name
-        self.videos = []
+    def __init__(self, playlist_name):
+        self._playlist_name = playlist_name
+        self._videos = []
     
     def clear(self):
-        self.videos.clear()
+        """Clears the playlist."""
+        self._videos.clear()
         
     def remove(self, video):
-        if video in self.videos:
-            self.videos.remove(video)
+        """
+        Tries to remove a video from a playlist.
+        Returns if it succeeds.
+
+        Args:
+            video: The video_id to be played.
+        """         
+        if video in self._videos:
+            self._videos.remove(video)
             return True
         else:
             return False
         
     def add(self, video):
-        if video in self.videos:
+        """
+        Tries to add a video to a playlist.
+        Returns if it succeeds.
+
+        Args:
+            video: The video_id to be played.
+        """         
+        if video in self._videos:
             return False
         else:
-            self.videos.append(video)
+            self._videos.append(video)
             return True
     
-    def get_videos(self):
-        return self.videos
+    @property
+    def videos(self):
+        """Returns the videos in the playlist."""         
+        return self._videos
+    
+    @property
+    def name(self) -> str:
+        """Returns the title of a video."""
+        return self._playlist_name

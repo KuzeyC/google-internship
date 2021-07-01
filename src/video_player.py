@@ -151,11 +151,11 @@ class VideoPlayer:
         """
         if playlist_name.lower() in self._playlists:
             print(f"Showing playlist: {playlist_name}")
-            videos = self._playlists[playlist_name.lower()].get_videos()
+            videos = self._playlists[playlist_name.lower()].videos
             if len(videos) == 0:
                 print("No videos here yet")
             else:
-                for video in self._playlists[playlist_name.lower()].get_videos():
+                for video in self._playlists[playlist_name.lower()].videos:
                     x = f"{video.title} ({video.video_id}) [{' '.join(video.tags)}]"
                     if video.flag:
                         x += f" - FLAGGED (reason: {video.flag})"

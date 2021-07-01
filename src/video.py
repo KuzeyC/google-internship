@@ -33,9 +33,10 @@ class Video:
     
     @property
     def flag(self) -> Sequence[str]:
-        """Returns the list of tags of a video."""
+        """Returns the flag of a video."""
         return self._flag
     
     def set_flag(self, f):
+        """Sets the flag of a video."""
         self._flag = f
 
